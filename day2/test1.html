@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas的应用</title>
+</head>
+<style>
+    #canvasContent{
+        width: 100%;
+        outline: 1px solid red;
+    }
+</style>
+<body>
+<canvas id="canvasContent" width="1024" height="600"></canvas>
+<script>
+    var cxt=document.getElementById("canvasContent").getContext("2d");
+    //一次表示的是X坐标，Y坐标，宽度，高度
+    cxt.rect(100,100,200,200);
+    //cxt.fill();       实心填充
+    cxt.stroke();       //描边
+    //改变颜色
+    cxt.strokeStyle="red";          //放在第一步，改变画笔的颜色
+    cxt.lineWidth=10;
+    cxt.fillStyle="gray";
+    cxt.lineCap="round";        //添加的是起点和终点的线头的线帽
+    //第二种简单的画矩形
+    cxt.strokeRect(200,200,100,100);
+    //画直线
+    //起点坐标X，Y moveTo(x,y);
+    //终点坐标X,Y lineTo(x,y);
+    //1 打开路径
+    cxt.beginPath();
+    //2 开始的坐标
+    cxt.moveTo(400,200);
+    //终点的坐标
+    cxt.lineTo(400,300);        //添加多个的时候，可以画出L型
+    cxt.lineTo(600,300);
+    cxt.closePath();
+    //4 下笔
+    cxt.stroke();
+//    cxt.fill();
+
+
+
+    //画弧形
+    cxt.save(); //先进行保存
+    //x坐标，y坐标，半径，起点的角度(弧度)，终点的角度，true是逆时针/false是顺时针
+    cxt.beginPath();
+    cxt.rotate(10*Math.PI/180); //旋转的是画布
+    cxt.arc(400,400,100,0,360*Math.PI/180,true);
+    cxt.stroke();
+    cxt.restore();   //还原到上一个save()状态
+
+
+    //画布的平移
+    cxt.beginPath();
+    cxt.translate(200,300);     //移动的是整个画布
+
+
+    //清空
+    cxt.clearRect(0,0,100,600);  //表示的是清空整个画布，重新画表盘；
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="" method="get" id="formid">
+    <input type="date" min="2016-03-08" max="2016-11-30"/>
+    <input type="datetime"/> chrome不支持，但是会以文本框出现
+    <input type="datetime-local"/> 年月日时分秒
+    <input type="time"/> 时分秒
+    <br/>
+    <input onmousemove="getRange()" type="range" step="1" min="0" max="100" id="myrange"/>
+    <br/>
+    <input type="text"/>
+    email:<input type="email"/>
+    <br/>
+    url：<input type="url"/>
+    number：<input type="number"/>
+    <br/>
+    number：<input type="number" required="required"/>
+    正则必须要填写的东西
+    <br/>
+    自定义正则：<input type="text" required="required" pattern="[0-9]"/>
+    <br/>
+    <br/>
+    颜色：<input type="color"/>
+    <button type="submit">提交</button>
+    <input type="submit"/>
+    <button onclick="getsubmit()" >提交</button>
+
+</form>
+<script>
+    function getRange(){
+        var myrange=document.getElementById("myrange")
+        console.log(myrange.value)
+    }
+    function getsubmit(){
+        var formid=document.getElementById("formid")
+        formid.submit()
+    }
+</script>
+</body>
+
+</html>

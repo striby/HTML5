@@ -1,0 +1,224 @@
+/*========全局变量=========*/
+*{
+    font-family: '微软雅黑';
+    margin: 0px;
+    padding: 0px;
+}
+i{
+    font-style: normal;
+}
+body{
+    width: 1349px;
+}
+/*引入font-face*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/font-face/iconfont.eot'); /* IE9*/
+    src: url('../font/font-face/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/font-face/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/font-face/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/font-face/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+/*===========导航部分============*/
+
+
+
+
+/*===========内容部分================*/
+.mysection{
+    padding-left: 120px;
+    padding-top: 20px;
+    height: 900px;
+    outline: 1px solid darkgoldenrod;
+}
+figure{
+    width: 345px;
+    height: 420px;
+    float: left;
+    margin-left: 32px;
+    margin-top: 20px;
+    position: relative;
+    outline: 1px solid darkmagenta;
+}
+img{
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    -webkit-transition: all .5s linear ;
+    -moz-transition: all .5s linear ;
+    -ms-transition: all .5s linear ;
+    -o-transition: all .5s linear ;
+    transition: all .5s linear ;
+}
+.myimg2{
+    width: 66px;
+    border-radius: 66px;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 3;
+}
+figcaption{
+    width: 360px;
+    height: 90px;
+    color: white;
+    outline: 1px solid darkorange;
+    /*margin-top: -px;*/
+    text-indent: 15px;
+    text-transform: capitalize;
+    background-color: #f44336;
+    position: absolute;
+    left: -15px;
+    top: 330px;
+    z-index: 2;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+}
+figure i{
+    font-family: iconfont;
+}
+.zuoXiesanjiao{
+    font-size: 15px;
+    color: #b71c1c;
+    position: absolute;
+    left: -16px;
+    top: 314px;
+    z-index: -1;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+}
+.zanShou{
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 40px;
+    border: 5px solid white;
+    background-color:#f44336;
+    position: absolute;
+    left:280px;
+    top: 20px;
+    z-index: 4;
+    cursor: pointer;
+    -webkit-transition: all .5s linear ;
+    -moz-transition: all .5s linear ;
+    -ms-transition: all .5s linear ;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+    /*outline: 1px solid green;*/
+}
+.figcaption_p1{
+    font-size: 25px;
+    margin-top: 10px;
+}
+.figcaption_p2{
+    font-size: 20px;
+    word-spacing: -5px;
+    margin-top: 10px;
+}
+figcaption>div{
+    float: left;
+}
+.touXiang2{
+    width: 66px;
+    height: 66px;
+    line-height: 66px;
+    border-radius: 66px;
+    margin-top: 10px;
+    margin-left: 15px;
+    /*position: absolute;*/
+    /*z-index: 3;*/
+}
+.xiaFang_fontface{
+    width: 345px;
+    height: 90px;
+    /*padding-left: 30px;*/
+    background-color: #333333;
+    position: absolute;
+    top: 330px;
+    z-index: 1;
+}
+/*.figure_overflow{*/
+    /*margin-top: 140px;*/
+    /*margin-left: 30px;*/
+    /*outline: 1px solid green;*/
+/*}*/
+.figure_wenzi{
+    width: 345px;
+    height: 345px;
+    position: absolute;
+    z-index: -1;
+    background-color: aqua;
+}
+.figure_wenzi p{
+    margin-top: 200px;
+    margin-left: 30px;
+    visibility: hidden;
+}
+/*font-face的图标的背景色*/
+.xiaFang_fontface i{
+    float: left;
+    display: block;
+    font-size: 35px;
+    width: 52px;
+    height: 52px;
+    line-height: 45px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 90px;
+    color: white;
+    display: none;
+    background-color: darkorange;
+}
+.xiaFang_fontface i:first-child{
+    margin-left: 30px;
+}
+.figure_wenzi_span{
+    display: block;
+    margin-top: 60px;
+    margin-left: 30px;
+    color: darkorange;
+}
+
+
+
+
+/*==============页脚部分===============*/
+
+
+
+
+/*=========动画部分===========*/
+/*文字动画1*/
+@-webkit-keyframes move1 {
+    from{
+        margin-top: 200px;
+    }
+    to{
+        margin-top: 140px;
+    }
+}
+@-webkit-keyframes move2 {
+    from{
+        margin-top: 100px;
+    }
+    to{
+        margin-top: 30px;
+    }
+}
+@-webkit-keyframes move3 {
+    from{
+        margin-top: 90px;
+    }
+    to{
+        margin-top: 15px;
+    }
+}

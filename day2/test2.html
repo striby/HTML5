@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        #cvs{
+            border: 1px red solid;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="cvs" width="1000px" height="700px"></canvas>
+<script>
+    var cvsX = document.getElementById("cvs").getContext("2d");
+
+
+//    矩形
+     //一次表示的是X坐标，Y坐标，宽度，高度
+    cxt.rect(100,100,200,200);
+/*//圣诞树
+    cvsX.strokeStyle="green";
+    cvsX.lineWidth="5px";
+    cvsX.fillStyle="green";
+    cvsX.beginPath();
+    cvsX.moveTo(500,50);
+    cvsX.lineTo(400,150);
+    cvsX.lineTo(600,150);
+    cvsX.closePath();
+    cvsX.fill();
+    cvsX.stroke();
+
+    cvsX.beginPath();
+    cvsX.moveTo(500,150);
+    cvsX.lineTo(300,250);
+    cvsX.lineTo(700,250);
+    cvsX.closePath();
+    cvsX.fill();
+    cvsX.stroke();
+
+    cvsX.beginPath();
+    cvsX.moveTo(500,250);
+    cvsX.lineTo(100,350);
+    cvsX.lineTo(900,350);
+    cvsX.closePath();
+    cvsX.fill();
+    cvsX.stroke();
+
+    cvsX.beginPath();
+    cvsX.moveTo(400,350);
+    cvsX.lineTo(400,550);
+    cvsX.lineTo(600,550);
+    cvsX.lineTo(600,350);
+    cvsX.closePath();
+    cvsX.fill();
+    cvsX.stroke();*/
+
+//    圆
+//    参数 x,y,半径,起始弧度,截止弧度,顺时针画,逆时针画(画完)
+    cvsX.arc(700,400,200,0,Math.PI*2,true); //Math.PI*2是JS计算方法，是圆
+
+//    旋转
+    cvsX.rotate(Math.PI/180*10); // 旋转画布.
+
+//    平移
+    cvsX.translate(400,0)   //画布
+//      缩小
+    cvsX.scale(.4,.5); //画布
+
+//保存 画布 状态
+
+    cvsX.save();
+
+//    回答画布上一个状态
+    cvsX.restore();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Element</title>
+</head>
+<body>
+<!--头部-->
+<header>
+    <!--导航部分标签-->
+    <nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+</header>
+<!--内容承载大块-->
+<section>
+    <article>
+        <p>这是一段内容</p>
+    </article>
+    <hgroup>
+        <h1>这是标题1</h1>
+        <h1>这是标题2</h1>
+        <h1>这是标题3</h1>
+    </hgroup>
+    <!--表示的是一组多媒体等-->
+    <figure>
+        <img src="" alt=""/>
+        <figcaption>表示的是对上面多媒体的描述</figcaption>
+    </figure>
+    <form action="#" method="post">
+        <!--<input type="color"/>   &lt;!&ndash;表示的是颜色选择器&ndash;&gt;-->
+        <input type="range" step="10" min="0" max="100"/>  <!--表示的是拖动条-->
+        <input type="email"/>  <!--自己默认的带正则，只有当sumbit后才会去验证-->
+        <input type="url"/>     <!--表示的是输入url地址-->
+        <input type="number" required="required"/>   <!--表示的是输入数字，进行了正则的验证-->
+        <!--自定义正则-->
+        <input type="text" required="required" pattern="[0-9]"/>   <!--表示的是自定义正则   pattern表示的是自己定义的规则-->
+
+        <button type="submit"></button>     <!--也表示的是进行表单的提交-->
+        <input type="color"/>
+
+    </form>
+</section>
+<!--页尾部分-->
+<footer>
+    <!--内容-->
+</footer>
+</body>
+</html>
