@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #mycanvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas id="mycanvas" width="1000" height="600">
+
+    </canvas>
+    <script>
+        var ctx=document.getElementById("mycanvas").getContext("2d");
+        window.onload=function(){
+            setInterval(drawclock,10)
+        };
+        function drawclock(){
+            ctx.clearRect(0,0,1000,600);
+            drawkd();
+            bp();
+            drawmz()
+        }
+        function drawkd(){
+            for(var i= 0;i<60;i++){
+                ctx.save();
+                ctx.translate(500,300);
+                ctx.rotate(Math.PI/180*i*6);
+                ctx.beginPath();
+                if(i%5==0){
+                    ctx.lineWidth="7";
+                    ctx.lineCap="round";
+                    ctx.strokeStyle="yellow";
+                    ctx.moveTo(0,200);
+                    ctx.lineTo(0,170);
+                }else{
+                    ctx.lineWidth="5";
+                    ctx.lineCap="round";
+                    ctx.strokeStyle="red";
+                    ctx.moveTo(0,200);
+                    ctx.lineTo(0,180);
+                }
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+        function bp(){
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle="black";
+            ctx.lineWidth="7";
+            ctx.arc(500,300,200,0,Math.PI/180*360,false);
+            ctx.stroke();
+            ctx.restore();
+        }
+        function drawmz(){
+            var date= new Date();
+            ctx.save();
+            ctx.strokeStyle="green";
+            ctx.lineWidth="4";
+            ctx.lineCap="round";
+            ctx.shadowOffsetX="5";
+            ctx.shadowOffsetY="5";
+            ctx.shadowColor="red";
+            ctx.shadowBlur="0.5";
+            ctx.translate(500,300);
+            ctx.rotate(Math.PI/180*date.getSeconds()*6);
+            ctx.beginPath();
+            ctx.moveTo(0,-20);
+            ctx.lineTo(0,150);
+            ctx.stroke();
+            ctx.restore();
+        }
+    </script>
+</body>
+
+</html>

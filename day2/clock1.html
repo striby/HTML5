@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #can{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="can" width="1200" height="800"></canvas>
+<script>
+    var ctx = $("can").getContext("2d");
+
+    function $(t){
+        return document.getElementById(t);
+    }
+
+
+
+    window.onload = function () {
+      setInterval(bulidclock,30);
+    };
+
+    function bulidclock(){
+        ctx.clearRect(0,0,1200,800);
+        baichui();//摆锤
+
+        buildBackground();//背景
+        buildDial();//表盘
+
+        buildSecondHand();//秒针
+        buildMinuteHand();//分针
+        buildHourHand();//时针
+        buildCalibration(); //刻度
+
+    }
+
+    function buildDial(){
+        ctx.save();
+        ctx.strokeStyle="black";
+        ctx.lineWidth="8";
+        ctx.fillStyle="white";
+        ctx.beginPath();
+        ctx.arc(500,300,200,0,Math.PI*2,false);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+        ctx.restore();
+    }
+    function buildCalibration(){
+            for(var i=0;i<60;i++){
+                ctx.save();
+                ctx.translate(500,300);
+                ctx.rotate(Math.PI/180*i*6);
+                ctx.beginPath();
+    //
+                if(i%5==0){
+                    ctx.lineWidth="4";
+                    ctx.strokeStyle="black";
+
+                    ctx.moveTo(0,195);
+                    ctx.lineTo(0,175);
+                }else{
+                    ctx.lineWidth="5";
+                    ctx.strokeStyle="black";
+
+                    ctx.moveTo(0,195);
+                    ctx.lineTo(0,180);
+                    ctx.closePath();
+
+                }
+                ctx.closePath();
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+    function buildSecondHand(){
+        var date= new Date();
+
+        ctx.save();
+        ctx.translate(500,300);
+
+        ctx.rotate(Math.PI/180*date.getSeconds()*6);
+
+        ctx.strokeStyle="gary";
+        ctx.lineWidth="1";
+        ctx.beginPath();
+        ctx.moveTo(0,20);
+        ctx.lineTo(0,-160);
+
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+    }
+    function buildMinuteHand(){
+        var date= new Date();
+
+        ctx.save();
+        ctx.translate(500,300);
+
+        ctx.rotate(Math.PI/180*date.getMinutes()*6);
+
+        ctx.strokeStyle="gary";
+        ctx.lineWidth="3";
+        ctx.beginPath();
+        ctx.moveTo(0,15);
+        ctx.lineTo(0,-140);
+
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+
+    }
+    function buildHourHand(){
+        var date= new Date();
+
+        ctx.save();
+        ctx.translate(500,300);
+
+        ctx.rotate(Math.PI/180*(date.getHours()*31));
+
+        ctx.strokeStyle="gary";
+        ctx.lineWidth="5";
+        ctx.beginPath();
+        ctx.moveTo(0,15);
+        ctx.lineTo(0,-120);
+
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function buildBackground(){
+        ctx.save();
+
+        ctx.lineWidth="10";
+        ctx.strokeStyle="black";
+        ctx.fillStyle="#6f5151";
+
+        ctx.beginPath();
+        ctx.moveTo(200,10);
+        ctx.lineTo(800,10);
+        ctx.lineTo(800,790);
+        ctx.lineTo(650,790);
+        ctx.lineTo(650,600);
+        ctx.lineTo(350,600);
+        ctx.lineTo(350,790);
+        ctx.lineTo(200,790);
+
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+        ctx.restore();
+    }
+    var j =0;
+    var flag = true;//顺时针和逆时针判断
+    function baichui(){
+        var date = new Date();
+        ctx.save();
+        ctx.translate(500,300);
+//        ctx.rotate(Math.PI/180*date.getMilliseconds());
+        if(flag==true){
+                j--;
+                if (j == -15) {
+                    flag = false;
+                }
+        }
+        if(flag==false){
+            j++;
+            if(j==15){
+                flag=true;
+            }
+        }
+//        l:15;r:-15
+//            console.log(j);
+        ctx.rotate(Math.PI/180*j);
+
+
+
+        ctx.lineWidth="10";
+        ctx.strokeStyle="black";
+        ctx.lineCap="round";
+        ctx.fillStyle="black";
+        ctx.beginPath();
+
+        ctx.moveTo(0,0);
+        ctx.lineTo(0,400);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0,400,40,0,2*Math.PI,true);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.restore();
+
+    }
+</script>
+</body>
+</html>

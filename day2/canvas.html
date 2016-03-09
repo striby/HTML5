@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+ <style>
+        canvas{
+            border: 1px solid red;
+        }
+        </style>
+        <body>
+        <canvas id="mycanvas" width="1000" height="500">
+        </canvas>
+        <script>
+        window.onload=function(){
+            var mycanvas=document.getElementById("mycanvas").getContext("2d");
+//          mycanvas.fillStyle="red"
+//        mycanvas.fillRect(100,100,200,200);
+//        mycanvas.fillRect(200,200,200,100);
+//        mycanvas.fillStyle="#333333"  //  没换一次颜色在画那么画出来的颜色是
+                                          //最近换这次颜色的颜色
+//        mycanvas.fillRect(300,300,300,300);  //画矩形
+//        mycanvas.fillStyle="#333333"
+          //画线条
+        mycanvas.lineWidth="20";   //画笔的宽度
+        mycanvas.strokeStyle="red";//画笔的颜色
+        mycanvas.fillStyle="red";  // 填充的颜色
+        //mycanvas.lineCap="round";  //圆角
+//        mycanvas.beginPath();       // 打开路径
+//        mycanvas.moveTo(100,100);   //从起点开始画
+//        mycanvas.lineTo(200,100);   //画到哪里
+//        mycanvas.lineTo(200,200);
+//        mycanvas.lineTo(300,200);
+//        mycanvas.closePath();        //关闭路径
+//        mycanvas.stroke()   ;         //画
+//        mycanvas.fill()    ;          //填充
+            //画圆形
+            mycanvas.beginPath();
+//            mycanvas.arc(100,100,50,0,-Math.PI/180*270,false)
+//            mycanvas.fill();
+          //操作画布
+            //mycanvas.rotate(Math.PI/180*10);//  旋转的是画布
+//            mycanvas.fillRect(200,200,200,100);
+//            mycanvas.rotate(Math.PI/180*10);
+//            mycanvas.fillRect(200,200,200,100);
+//            mycanvas.rotate(Math.PI/180*10);
+//            mycanvas.fillRect(200,200,200,100);
+//            平移
+//            mycanvas.translate(400,0)
+//            mycanvas.fillRect(200,200,200,100);
+//            放大缩小
+//              mycanvas.save()  //  记忆当前内存画布的位置
+//              mycanvas.scale(0.5,0.5)；
+//            mycanvas.fillRect(200,200,200,100);
+//              mycanvas.restore()  //还原最近记忆画布的位置
+            mycanvas.fillStyle="blue";
+            mycanvas.fillRect(800,400,50,50)
+
+
+    }
+</script>
+</body>
+</html>
