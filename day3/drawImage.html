@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drawimage</title>
+</head>
+<body>
+<canvas id="tet" width="1000" height="800"></canvas>
+<script>
+    var tet = document.getElementById("tet").getContext("2d");
+    var myimg = document.getElementById("myimg").getContext("2d");
+
+    function cutImg(){
+        /*第一种画法是传递三个参数   这种画法会将整个图片画进画布中
+         * 1 个参数是将img这个节点传进来
+         * 2 个参数表示的是将图片画在画布上面的X轴的坐标
+         * 3 个参数表示的是将图片画在画布上面的Y轴的坐标*/
+        tet.beginPath();
+        tet.drawImage(myimg,0,0);
+        tet.stroke();
+
+        /*第二种画法  传递的是五个参数
+         * 1 表示的是图片的节点
+         * 2 表示的是画在画布上面的X轴坐标
+         * 3 表示的是画在画布上面的Y轴的坐标
+         * 4 表示的是画在画布的宽度
+         * 5 表示的是画在画布上的高度*/
+        tet.beginPath();
+        tet.drawImage(myimg,200,200,50,50);
+        tet.stroke();
+
+        /*第三种画法  需要9个参数  也是常用的画法
+         * 1 表示的是img图片的节点
+         * 2 表示的是切割图片的X坐标
+         * 3 表示的是切割图片的Y坐标
+         * 4 表示的是切割图片的宽度
+         * 5 表示的是切割图片的高度
+         * 6 表示的是将图片画在画布上面的X轴坐标
+         * 7 表示的是将图片画在画布上面的Y轴坐标
+         * 8 表示的是图片切割后画在画布上面的宽度
+         * 9 表示的是图片切割后画在画布上面的高度*/
+        tet.beginPath();
+        tet.drawImage(myimg,0,0,100,100,300,300,100,100);
+        tet.stroke();
+
+
+
+
+    }
+</script>
+</body>
+</html>

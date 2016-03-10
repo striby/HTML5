@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--X-UA-Compatible, 设置兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>trees</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var Tree = (function(){
+//        一个var 创建了所有需要的变量.
+//        在设置宽高时取全屏
+        var canvas = document.createElement("canvas"),ctx = canvas.getContext("2d"),W = window.innerWidth,H = window.innerHeight;
+//        设置最大度数和分支数
+        var maxAngle = Math.PI/ 2,maxBranch = 3 ;
+        canvas.height = H;canvas.width = W;
+        document.body.appendChild(canvas);
+
+        var init = function (x,y) {
+            var x = x|| W / 2, y = y||H/2+100;
+
+            draw(x,y,60,-Math.PI/2,12,12);
+        };
+
+        var draw = function (startX, startY, length, angle, depth, branchWidth) {
+            var color,endX,endY,subBranches,newAngle,newLength;
+            ctx.beginPath();
+            ctx.moveTo(startX,startY);
+
+            endX = startX + length*Math.cos(angle);
+            endY = startY + length*Math.sin(angle);
+
+            ctx.lineCap = 'round';
+            ctx.lineWidth = branchWidth;
+            ctx.lineTo(endX,endY);
+
+            if(depth--<=2){
+                color = 'green';
+            }else {
+                color = 'black';
+            }
+            ctx.strokeStyle = color;
+            ctx.stroke();
+            if(!depth) return; //分支不为0, 返回.
+            subBranches = rand(1,maxBranch); //子分支创建数量
+            branchWidth*=0.7; //之分支的线宽度.
+
+            for (var i = 0;i<subBranches;i++){
+                newAngle = angle + rand(-Math.PI/4,Math.PI/4); //新的弧度
+                newLength = length*rand(0.7,1); //新的长度
+                draw(endX,endY,newLength,newAngle,depth,branchWidth);
+            }
+        };
+        var rand = function (min, max) {
+            return Math.random()*(max-min)+min;
+        };
+        
+        var clear = function () {
+            ctx.clearRect(0,0,W,H);
+        };
+        return{
+            init:init
+        }
+    })();//执行函数
+
+    function setinit(){
+        setInterval(Tree.init(),1000);
+    }
+    window.onload = function(){
+//        Tree.init()
+        setInterval(setinit,10);
+    }
+</script>
+</body>
+</html>
