@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+     <form action="">
+        用户名：<input type="text" id="username"/>
+        密  码：<input type="text" id="password"/>
+        <button type="button" onclick="getname()">提交</button>
+        <button type="button" onclick="qureyUser()">查询</button>
+     </form>
+     <div id="ms">
+
+     </div>
+     <script>
+//        1.创建数据库连接对象
+//            传值为4个
+//             1.数据库名字，2.数据库版本,3数据库描素,4.数据库大小.
+//                1m=1024kb
+//                1kb=1024byte
+         var db=openDatabase("demo84","","",1024*1024*10);
+         db.transaction(function(tx){
+             tx.executeSql("create table if not exists t_user(u_name varchar(50),u_pwd varchar(50))")
+         })
+         function getname(){
+             var name=document.getElementById("username").value;
+             var pwd=document.getElementById("password").value;
+             db.transaction(function(tx){
+//                 4个值
+//                 1.sql语句。2.参数。
+//                3.成功返回信息的回调函数。(1.transaction对象，2信息对象)
+//                4.错误返回信息的回调函数
+                 tx.executeSql("insert into t_user(u_name,u_pwd) values(?,?)",[name,pwd],
+                 function(trans,rs){
+                     console.log("成功信息"+rs)
+                 },function(trans,rs){
+                     console.log("失败信息"+trans)
+                         }
+                 )
+             })
+         }
+         function qureyUser(){
+             var ms=document.getElementById("ms");
+             db.transaction(function(tx){
+                 tx.executeSql("select * from t_user",[],
+                 function(trans,rs){
+//                     console.log(rs.rows.item(0).u_name);
+                     for(var i=0;i<rs.rows.length;i++){
+                         ms.innerHTML+="用户名："+rs.rows.item(i).u_name+"<br/>"
+                     }
+                 },
+                 function(trans,rs){})
+             })
+         }
+     </script>
+</body>
+</html>

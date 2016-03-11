@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="seach">
+    <button onclick="getSeachContent()">搜索</button>
+    <button onclick="getSessionValue()">获取sessionstorage</button>
+    <button onclick="getSessionKey()">获取sessionstorage2</button>
+
+
+    <button onclick="getLocalContent()">搜索</button>
+    <button onclick="getLocalValue()">获取localStorage</button>
+    <button onclick="getLocalKey()">获取localStorage2</button>
+    <script>
+    var contentList=[];
+
+        function getSeachContent(){
+            var content= document.getElementById("seach").value;
+            contentList.push(content);
+            sessionStorage.setItem("ceach1",contentList[0]);
+            sessionStorage.setItem("ceach2",contentList[1]);
+            sessionStorage.setItem("ceach3",contentList[2]);
+            sessionStorage.setItem("ceach4",contentList[3]);
+            window.location.href="day4-2.html"
+        }
+        function getSessionValue(){
+            var valueSession=sessionStorage.getItem("ceach1");
+            alert(valueSession)
+        }
+        function getSessionKey(){
+            alert(sessionStorage.length);
+            alert(sessionStorage.key(2));
+            sessionStorage.clear()
+        }
+    function getLocalContent(){
+        var content= document.getElementById("seach").value;
+        contentList.push(content);
+        localStorage.setItem("ceach1",contentList[0]);
+        localStorage.setItem("ceach2",contentList[1]);
+        localStorage.setItem("ceach3",contentList[2]);
+        localStorage.setItem("ceach4",contentList[3]);
+
+    }
+    function getLocalValue(){
+        var valueSession=localStorage.getItem("ceach1");
+        alert(valueSession)
+    }
+    function getLocalKey(){
+        alert(localStorage.length);
+        alert(localStorage.key(2));
+        localStorage.clear()
+    }
+    </script>
+</body>
+</html>

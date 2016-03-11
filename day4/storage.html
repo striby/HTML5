@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>storage</title>
+</head>
+<body>
+<div>
+    <label id="xm">
+    <input type="text" value="姓名">
+    </label>
+    <label id="pwd">
+    <input type="text" value="密码">
+    </label>
+</div>
+</body>
+
+<script>
+//    openDatabase 参数(数据库名,数据库版本,数据库秒杀,数据库大小(单位b))
+    var db = openDatabase("demo","","","1024*1024*10");
+
+/*连接数据库
+* transaction处理事物
+* 依赖注入tx对象
+* */
+    db.transaction(function (tx) {
+        tx.executeSql("create table if not exists t_user(u_id int primary key u_name varchar(50),u_pwd varchar(50))");
+    });
+
+    function getname(){
+        var name = document.getElementById("username").value;
+        var pwd = document.getElementById("password'").value;
+        db.transaction(function (tx) {
+//            executeSql (1.sql,2.参数,3.成功回调函数,4.错误回调函数)
+            tx.executeSql()
+        });
+    }
+</script>
+</html>
